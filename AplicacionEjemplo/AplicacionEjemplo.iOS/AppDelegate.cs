@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using HockeyApp.iOS;
 
 namespace AplicacionEjemplo.iOS
 {
@@ -22,6 +23,11 @@ namespace AplicacionEjemplo.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var manager = BITHockeyManager.SharedHockeyManager;
+            manager.Configure("-AppId-");
+
+            manager.StartManager();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

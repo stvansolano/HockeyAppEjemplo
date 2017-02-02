@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using HockeyApp.Android;
 
 namespace AplicacionEjemplo.Droid
 {
@@ -18,6 +19,8 @@ namespace AplicacionEjemplo.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            CrashManager.Register(this, "-AppId-");
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

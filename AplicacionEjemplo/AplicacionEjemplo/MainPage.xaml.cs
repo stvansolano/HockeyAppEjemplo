@@ -12,6 +12,14 @@ namespace AplicacionEjemplo
         public MainPage()
         {
             InitializeComponent();
+
+            BotonError.Clicked += (sender, obj) => {
+                throw new Exception("Aca un error");
+            };
+            
+            BotonEvento1.Clicked += (sender, obj) => {
+                HockeyApp.MetricsManager.TrackEvent("Evento 1");
+            };
         }
     }
 }
